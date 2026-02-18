@@ -1,0 +1,20 @@
+name: Test
+
+on:
+    workflow_dispatch:
+    push:
+      branches:
+        -"*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+
+      - name: Print Start Message-1
+        run: echo "Workflow started..."
+      - name: Print Start Message-2
+        run: echo "Workflow started..."
