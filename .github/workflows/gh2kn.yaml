@@ -1,0 +1,13 @@
+name: Test workflow changed
+
+on:push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Start Message-1
+        run: echo "Workflow started..."
+      - name: Print Start Message-2
+        run: echo "Workflow started..."
