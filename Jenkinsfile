@@ -8,6 +8,7 @@ pipeline {
                     steps {
                         echo 'Compiling...'
                         sleep 10
+                        
                     }
                 }
                 stage('Package') {
@@ -16,14 +17,6 @@ pipeline {
                         sleep 5
                     }
                 }
-            }
-        }
-        
-
-        stage('New stage 3-edited') {
-            steps {
-                echo 'Deploying...'
-                sleep 3
             }
         }
 
@@ -42,19 +35,19 @@ pipeline {
             }
         }
 
-         stage('New stage 2') {
-            steps {
-                echo 'Deploying...'
-                sleep 2
-            }
-        }
-
         stage('Test') {
             steps {
                 echo 'Running Unit Tests...'
                 sleep 10
                 echo 'Running Integration Tests...'
                 sleep 5
+            }
+        }
+
+         stage('New stage') {
+            steps {
+                echo 'Deploying...'
+                sleep 3
             }
         }
 
@@ -65,18 +58,18 @@ pipeline {
             }
         }
 
-        stage('New stage 1 - edits') {
+         stage('New stage 2') {
             steps {
                 echo 'Deploying...'
-                sleep 1
+                sleep 7
             }
         }
 
         stage('Final Status') {
             steps {
                 script {
-                    echo "Marking build as UNSTABLE."
-                    currentBuild.result = 'UNSTABLE'
+                    echo "Forcing FAILURE."
+                    error("Build failed intentionally.")
                 }
             }
         }
