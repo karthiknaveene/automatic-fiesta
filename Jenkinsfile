@@ -8,13 +8,12 @@ pipeline {
                     steps {
                         echo 'Compiling...'
                         sleep 10
-                        
                     }
                 }
-                stage('Package') {
+                stage('Package-edited') {
                     steps {
                         echo 'Packaging...'
-                        sleep 5
+                        sleep 2
                     }
                 }
             }
@@ -35,41 +34,27 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Test- edited') {
             steps {
                 echo 'Running Unit Tests...'
                 sleep 10
                 echo 'Running Integration Tests...'
-                sleep 5
+                sleep 2
             }
         }
 
-         stage('New stage') {
+        stage('Edit stage -1 ') {
             steps {
                 echo 'Deploying...'
-                sleep 3
+                sleep 1
             }
         }
 
-        stage('Deploy') {
+        stage('Final Status (Aborted)') {
             steps {
-                echo 'Deploying...'
-                sleep 5
-            }
-        }
-
-         stage('New stage 2') {
-            steps {
-                echo 'Deploying...'
-                sleep 7
-            }
-        }
-
-        stage('Final Status') {
-            steps {
-                script {
-                    echo "Forcing FAILURE."
-                    error("Build failed intentionally.")
+                timeout(time: 5, unit: 'SECONDS') {
+                    echo "This stage will run too long and trigger ABORT."
+                    sh 'sleep 20'
                 }
             }
         }
