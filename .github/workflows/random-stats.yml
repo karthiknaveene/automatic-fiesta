@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+
+      - name: Print Start Message-1
+        run: echo "Workflow started..."
+
+      - name: Generate Random Status
+        run: |
+          STATUSES=("SUCCESS" "FAILED" "PENDING" "SKIPPED")
+          RANDOM_STATUS=${STATUSES[$RANDOM % ${#STATUSES[@]}]}
+          echo "Random Status: $RANDOM_STATUS"
+
+      - name: Print Start Message-2
+        run: echo "Workflow finished..."
