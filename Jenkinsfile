@@ -10,10 +10,10 @@ pipeline {
                         sleep 10
                     }
                 }
-                stage('Package-edited') {
+                stage('Package') {
                     steps {
                         echo 'Packaging...'
-                        sleep 2
+                        sleep 5
                     }
                 }
             }
@@ -34,28 +34,11 @@ pipeline {
             }
         }
 
-        stage('Test- edited') {
-            steps {
-                echo 'Running Unit Tests...'
-                sleep 10
-                echo 'Running Integration Tests...'
-                sleep 2
-            }
-        }
+        
 
-        stage('Edit stage -1 ') {
+        stage('Final Status') {
             steps {
-                echo 'Deploying...'
-                sleep 1
-            }
-        }
-
-        stage('Final Status (Aborted)') {
-            steps {
-                timeout(time: 5, unit: 'SECONDS') {
-                    echo "This stage will run too long and trigger ABORT."
-                    sh 'sleep 20'
-                }
+                echo "Build completed (with a skipped stage)."
             }
         }
     }
