@@ -1,0 +1,20 @@
+name: fail
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start
+        run: echo "Workflow started..."
+
+      - name: Force Failure
+        run: exit 1
+
+      - name: This will not run
+        run: echo "You will not see this"
