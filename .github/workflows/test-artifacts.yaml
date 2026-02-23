@@ -1,0 +1,28 @@
+name: Build Artifact
+
+# on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "main"
+
+
+jobs:
+  publish-artifact:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Register Build Artifacts in Cloudbees Platform
+        uses: cloudbees-io-gha/register-build-artifact@v3.0.2
+        id: go-action
+        with:
+          name: "App13-Backend"
+          version: 2.0.0
+          url: docker.io/App13/App13-Backend:2.0.0
+          type: "docker"
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
+          
+          
+
+          
