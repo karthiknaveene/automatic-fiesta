@@ -17,9 +17,9 @@ jobs:
         uses: cloudbees-io-gha/register-build-artifact@v3.0.2
         id: go-action
         with:
-          name: "App13-Backend"
-          version: 2.0.0
-          url: docker.io/App13/App13-Backend:2.0.0
+          name: "App13-Backend-1"
+          version: 2.0.1
+          url: docker.io/App13/App13-Backend:2.0.1
           type: "docker"
           cloudbees-url: "https://api.saas-qa.beescloud.com"
           
