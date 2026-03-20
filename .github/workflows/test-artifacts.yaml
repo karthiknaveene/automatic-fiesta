@@ -27,6 +27,5 @@ jobs:
           url: docker.io/App13/App13-Backend:${{ steps.version.outputs.version }}
           type: "docker"
           cloudbees-url: "https://api.saas-preprod.beescloud.com"
-          label: "hjasgxbhgjkagshkxUHAxzsALKNxdkljABX"
           
 
