@@ -27,3 +27,4 @@
         // G501: import of weak crypto
         fmt.Println(password, apiKey)
   }
+
