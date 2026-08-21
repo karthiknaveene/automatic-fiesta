@@ -20,3 +20,4 @@ jobs:
       - name: Run Gitleaks
         uses: cloudbees-io/gitleaks-secret-scan-code@v1
         kind: scan
+
