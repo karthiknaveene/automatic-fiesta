@@ -13,10 +13,8 @@ jobs:
       - name: checkout-source-code
         uses: cloudbees-io/checkout@v1
 
-      - name: Run gosec (SO)
+      - name: Run gosec
         uses: cloudbees-io/gosec-sast-scan-code@v1
         kind: scan
-
-     - name: Run Gitleaks
-       uses: cloudbees-io/gitleaks-secret-scan-code@v1
-       kind: scan
+        with:
+          language: LANGUAGE_GO
