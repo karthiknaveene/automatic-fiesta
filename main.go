@@ -32,3 +32,4 @@ func main() {
 	var j uint32 = uint32(i)
 	fmt.Println(j)
 }
+
