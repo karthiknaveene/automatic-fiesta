@@ -18,3 +18,4 @@ jobs:
         kind: scan
         with:
           language: LANGUAGE_GO
+
