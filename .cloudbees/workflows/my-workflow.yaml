@@ -15,4 +15,8 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
+
+      - name: Run gosec (SO)
+        uses: cloudbees-io/gosec-sast-scan-code@v1
+        kind: scan
           
